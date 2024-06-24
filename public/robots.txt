@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: *?brands=*
+Disallow: *?categories=*
+Disallow: *?brands=*&categories=*
+Disallow: *?categories=*&brands=*
+Allow: /*.js$
+Allow: /*.css$
