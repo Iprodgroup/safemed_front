@@ -11,7 +11,7 @@ const Product = ({data, country, product,}) => {
           <Head>
           <link
           rel="canonical"
-          href={`https://safemedsupply.com/${country}/product/${product.title} `}
+          href={`https://safemedsupply.com/${country}/product/${product.title.toLowerCase().replace(/ /g, '-')}/`}
         />
             <title>
               {product.title} supplier in {data[country]?.name}
