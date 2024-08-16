@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
-import App from 'next/app';
-import { fetchCountries } from './api/countries';
+import App from "next/app";
+import { fetchCountries } from "./api/countries";
 import Head from "next/head";
 
 class MyApp extends App {
@@ -20,29 +20,45 @@ class MyApp extends App {
         ...pageProps,
         data,
         country,
-        currentPath
-      }
+        currentPath,
+      },
     };
   }
 
   render() {
     const { Component, pageProps } = this.props;
     const { currentPath, data, country } = pageProps;
-    
-    const newPath = currentPath.replace('/' + country, '');
-    return ( 
+
+    const newPath = currentPath.replace("/" + country, "");
+    return (
       <>
         <Head>
-          <link rel="alternate" href={`http://safemedsupply.com${newPath}`} hreflang="x-default"></link>
-          {Object.keys(data).map(key => {
+          {/* <link
+            rel="canonical"
+            href={`https://safemedsupply.com/${country}/`}
+          /> */}
+
+          <link
+            rel="alternate"
+            href={`http://safemedsupply.com${newPath}`}
+            hreflang="x-default"
+          ></link>
+          {Object.keys(data).map((key) => {
             const dataLink = `/${key}`;
             return (
-              <link key={key} rel="alternate" href={`http://safemedsupply.com${dataLink}${newPath}`} hrefLang={`en-${key}`} />
+              <link
+                key={key}
+                rel="alternate"
+                href={`http://safemedsupply.com${dataLink}${newPath}`}
+                hrefLang={`en-${key}`}
+              />
             );
           })}
 
-
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-100222YW6W"></script>
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-100222YW6W"
+          ></script>
           <script
             dangerouslySetInnerHTML={{
               __html: `

@@ -12,6 +12,8 @@ const Catalog = ({ categories, brands, data, country }) => {
           <meta property="og:title" content={`Buy safety at best prices in ${data[country].citys}`} key="title" />
           <meta name="description" content={`Buy safety at the best price in ${data[country].name} ${data[country].citys} | safety Supplier & Reseller`} />
           <meta property="og:description" content={`Buy safety at the best price in ${data[country].name} ${data[country].citys} | safety Supplier & Reseller`}/>
+          <link rel="canonical" href={`https://safemedsupply.com/${country}/catalog/safety/`}/>
+
         </Head>
         <Layout country={country}>
         <div className='mt-10'>

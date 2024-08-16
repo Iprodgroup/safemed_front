@@ -77,7 +77,7 @@ const ProductCard = ({data, country, product}) => {
                             Request a quote
                         </a>
                         <a
-                            href='https://wa.me/971589285102'
+                            href='https://wa.me/971 556305217'
                             className='2xl:text-lg xl:text-lg lg:text-lg md:text-md sm:text-sm text-xs
                                 uppercase font-bold py-2 max-w-[220px] w-full text-center bg-primary rounded-md text-white'
                         >

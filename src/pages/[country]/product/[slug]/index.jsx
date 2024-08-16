@@ -9,6 +9,10 @@ const Product = ({data, country, product,}) => {
     return (
         <>
           <Head>
+          <link
+          rel="canonical"
+          href={`https://safemedsupply.com/${country}/product/${product.title} `}
+        />
             <title>
               {product.title} supplier in {data[country]?.name}
             </title>

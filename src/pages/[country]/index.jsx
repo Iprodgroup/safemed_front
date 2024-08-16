@@ -9,7 +9,7 @@ const Home = ({data, country}) => {
     <>
       <Head>
       <title>Supplier of Medical Equipment and Safety Supplies (PPE) in {data[country].name}</title>
-        <meta property="og:title" content={`Supplier of Medical Equipment and Safety Supplies (PPE) in {data[country].name}`} key="title" />
+        <meta property="og:title" content={`Supplier of Medical Equipment and Safety Supplies (PPE) in ${data[country].name}`} key="title" />
         <meta name="description" content={`SafeMed offers best prices for Medical Equipment and Safety Supplies (PPE) with a wide range of over 200+ brands and fast delivery to ${data[country].citys} ${data[country].name}`} />
         <meta property="og:description" content={`SafeMed offers best prices for Medical Equipment and Safety Supplies (PPE) with a wide range of over 200+ brands and fast delivery to ${data[country].citys} ${data[country].name}`}/>
       </Head>
