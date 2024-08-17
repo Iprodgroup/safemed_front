@@ -1,42 +1,70 @@
+import styles from '../../../../styles/Brands.module.css';
 
-import React from "react";
-import axios from "axios";
-import ProductCard from "../../../../components/ProductCard";
-import Layout from "../../../../components/Layout";
-import Head from "next/head";
+import axios from 'axios';
+import Link from 'next/link';
 
-const Product = ({data, country, product,}) => {
-    return (
-        <>
-          {/* <Head>
-          <link
-          rel="canonical"
-          href={`https://safemedsupply.com/${country}/product/${product.title.toLowerCase().replace(/ /g, '-')}/`}
-        />
-            <title>
-              {product.title} supplier in {data[country]?.name}
-            </title>
-            <meta property="og:title" content={`${product.title} supplier in ${data[country]?.name}`} key="title" />
-            <meta name="description" content={`Buy ${product.title} at best prices in ${data[country]?.citys} ${data[country]?.name} | ${product.brand.title} Reseller, Dealer & Distributor`} />
-            <meta property="og:description" content={`Buy ${product.title} at best prices in ${data[country]?.citys} ${data[country]?.name} | ${product.brand.title} Reseller, Dealer & Distributor`}/>
-          </Head> */}
-          <Layout country={country}>
-              <div className="container mt-10">
-                  {/* <ProductCard data={data[country]} country={country}  product={product} /> тут будут бренды */}
-              </div>
-          </Layout>
-        </>
-        
-    )
-}
+import Layout from '../../../../components/Layout';
 
-export async function getServerSideProps({ params }) {  
-  const responseProduct = await axios.get('https://admin.safemedsupply.com/api/product/' + params.slug);
+const groupBrandsByLetter = (brands) => {
+  const grouped = {};
+
+  brands.forEach((brand) => {
+    const letter = brand.title.charAt(0).toUpperCase(); // Первая буква в верхнем регистре
+    if (!grouped[letter]) {
+      grouped[letter] = []; // Если ещё нет такой группы, создаем её
+    }
+    grouped[letter].push(brand); // Добавляем бренд в соответствующую группу
+  });
+
+  // Преобразуем объект в массив для использования в компоненте
+  return Object.keys(grouped).map((letter) => ({
+    letter,
+    brands: grouped[letter],
+  }));
+};
+
+const Product = ({ country, brands, slug }) => {
+  const data = groupBrandsByLetter(brands);
+
+  return (
+    <Layout country={country}>
+      <div className='container my-10'>
+        <ul className={styles.list}>
+          {data.map((brandGroup) => (
+            <li key={brandGroup.letter} className={styles.item}>
+              <b className={styles.letter}>{brandGroup.letter}</b>
+              <ul className={styles.links}>
+                {brandGroup.brands.map((brand) => (
+                  <li key={brand.id}>
+                    <Link
+                      href={{
+                        pathname: `/${country}/catalog/${slug}`,
+                        query: { brands: brand.id },
+                      }}
+                    >
+                      {brand.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Layout>
+  );
+};
+
+export async function getServerSideProps({ params }) {
+  const response = await axios.get(
+    'https://admin.safemedsupply.com/api/brands/' + params.slug
+  );
   return {
     props: {
-      product: responseProduct.data
-    }
+      brands: response.data,
+      slug: params.slug,
+    },
   };
 }
 
-export default Product
+export default Product;

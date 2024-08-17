@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-const Filters = ({ brands, categories }) => {
+const Filters = ({ type, brands, categories }) => {
     const router = useRouter();
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedBrands, setSelectedBrands] = useState([]);
@@ -45,9 +45,12 @@ const Filters = ({ brands, categories }) => {
         setVisibleCategories(prevVisibleCategories => prevVisibleCategories + 12);
     };
 
+    const country = router.query.country;
+    
     const showMoreBrands = () => {
-        setVisibleBrands(prevVisibleBrands => prevVisibleBrands + 12);
+        router.push(`/${country}/brands/${type}`);
     };
+
 
     return (
         <div className='w-[270px] border px-4 border-primary text-primary py-4 rounded-md shadow-lg filterContent'>

@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.item {
+  display: flex;
+  gap: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.letter {
+  font-size: 30px;
+}
+
+.links a {
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+@media (max-width: 640px) {
+  .list {
+    padding: 0 20px;
+  }
+}
