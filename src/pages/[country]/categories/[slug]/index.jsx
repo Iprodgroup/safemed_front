@@ -6,8 +6,8 @@ import Link from 'next/link';
 import Layout from '../../../../components/Layout';
 import useGroupByLetter from '../../../../hooks/useGroupByLetter';
 
-const Product = ({ country, brands, slug }) => {
-  const data = useGroupByLetter(brands);
+const CategoriesPage = ({ country, categories, slug }) => {
+  const data = useGroupByLetter(categories);
 
   return (
     <Layout country={country}>
@@ -17,15 +17,15 @@ const Product = ({ country, brands, slug }) => {
             <li key={group.letter} className={styles.item}>
               <b className={styles.letter}>{group.letter}</b>
               <ul className={styles.links}>
-                {group.arr.map((brand) => (
-                  <li key={brand.id}>
+                {group.arr.map((category) => (
+                  <li key={category.id}>
                     <Link
                       href={{
                         pathname: `/${country}/catalog/${slug}`,
-                        query: { brands: brand.id },
+                        query: { categories: category.id },
                       }}
                     >
-                      {brand.title}
+                      {category.title}
                     </Link>
                   </li>
                 ))}
@@ -40,14 +40,14 @@ const Product = ({ country, brands, slug }) => {
 
 export async function getServerSideProps({ params }) {
   const response = await axios.get(
-    'https://admin.safemedsupply.com/api/brands/' + params.slug
+    'https://admin.safemedsupply.com/api/categories/' + params.slug
   );
   return {
     props: {
-      brands: response.data,
+      categories: response.data,
       slug: params.slug,
     },
   };
 }
 
-export default Product;
+export default CategoriesPage;

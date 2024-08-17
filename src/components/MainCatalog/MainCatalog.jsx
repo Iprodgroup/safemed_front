@@ -81,7 +81,7 @@ const MainCatalog = ({ type, brands, categories, country }) => {
     <div className="container">
       <div className="w-full flex gap-10 justify-between searchContent">
         <div className="mb-10">
-          <Filters brands={brands} categories={categories} />
+          <Filters type={type} brands={brands} categories={categories} />
         </div>
         <div className="w-full">
           <form className="flex items-center gap-2  w-full mb-10">

@@ -41,7 +41,7 @@ class MyApp extends App {
           <link
             rel="alternate"
             href={`http://safemedsupply.com${newPath}`}
-            hreflang="x-default"
+            hrefLang="x-default"
           ></link>
           {Object.keys(data).map((key) => {
             const dataLink = `/${key}`;
