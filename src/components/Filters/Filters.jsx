@@ -5,8 +5,6 @@ const Filters = ({ type, brands, categories }) => {
     const router = useRouter();
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedBrands, setSelectedBrands] = useState([]);
-    const [visibleCategories, setVisibleCategories] = useState(12);
-    const [visibleBrands, setVisibleBrands] = useState(12);
 
     useEffect(() => {
         const { query } = router;
@@ -41,16 +39,15 @@ const Filters = ({ type, brands, categories }) => {
         });
     };
 
-    const showMoreCategories = () => {
-        setVisibleCategories(prevVisibleCategories => prevVisibleCategories + 12);
-    };
-
     const country = router.query.country;
+
+    const showMoreCategories = () => {
+        router.push(`/${country}/categories/${type}`);
+    };
     
     const showMoreBrands = () => {
         router.push(`/${country}/brands/${type}`);
     };
-
 
     return (
         <div className='w-[270px] border px-4 border-primary text-primary py-4 rounded-md shadow-lg filterContent'>
@@ -60,7 +57,7 @@ const Filters = ({ type, brands, categories }) => {
                         Categories
                     </h2>
                     <div className='block'>
-                        {categories.slice(0, visibleCategories).map((category) => (
+                        {categories.slice(0, 12).map((category) => (
                             <div key={category.id} className="flex items-center justify-between px-2 py-1 hover:bg-gray-100 rounded-md">
                                 <label htmlFor={category.id} className='cursor-pointer w-full break-words pr-2'>
                                     {category.title}
@@ -75,7 +72,7 @@ const Filters = ({ type, brands, categories }) => {
                                 />
                             </div>
                         ))}
-                        {visibleCategories < categories.length && (
+                        {categories.length && (
                             <div className="text-center mt-2">
                                 <button
                                     onClick={showMoreCategories}
@@ -92,7 +89,7 @@ const Filters = ({ type, brands, categories }) => {
                         Brands
                     </h2>
                     <div className='block'>
-                        {brands.slice(0, visibleBrands).map((brand) => (
+                        {brands.slice(0, 12).map((brand) => (
                             <button
                                 key={brand.id}
                                 onClick={() => handleBrandButtonClick(brand.id)}
@@ -103,7 +100,7 @@ const Filters = ({ type, brands, categories }) => {
                                 {brand.title}
                             </button>
                         ))}
-                        {visibleBrands < brands.length && (
+                        {brands.length && (
                             <div className="text-center mt-2">
                                 <button
                                     onClick={showMoreBrands}
