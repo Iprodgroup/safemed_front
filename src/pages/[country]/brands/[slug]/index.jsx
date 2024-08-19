@@ -11,6 +11,7 @@ const Product = ({ country, brands, slug }) => {
 
   return (
     <Layout country={country}>
+      <link rel="canonical" href={`https://safemedsupply.com/${country}/brands/${slug}/`} />
       <div className='container my-10'>
         <ul className={styles.list}>
           {data.map((group) => (
