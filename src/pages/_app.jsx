@@ -33,11 +33,6 @@ class MyApp extends App {
     return (
       <>
         <Head>
-          {/* <link
-            rel="canonical"
-            href={`https://safemedsupply.com/${country}/`}
-          /> */}
-
           <link
             rel="alternate"
             href={`http://safemedsupply.com${newPath}`}

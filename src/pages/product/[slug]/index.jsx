@@ -12,10 +12,6 @@ const Product = ({ data, product }) => {
         <title>
           {product.title} supplier in {data?.name}
         </title>
-        <link
-          rel="canonical"
-          href={`https://safemedsupply.com/${country}/product/${product.title} `}
-        />
         <meta
           property="og:title"
           content={`${product.title} supplier in ${data?.name}`}

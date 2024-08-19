@@ -47,7 +47,7 @@ const Footer = ({country}) => {
 
                             <ul className='flex flex-col gap-2'>
                                 <li>
-                                    <a className='flex gap-5' href='#!'>Address: <span>Shop # 85 Nakheel Center, Deira Dubai</span></a>
+                                    Address: <span>Shop # 85 Nakheel Center, Deira Dubai</span>
                                 </li>
                                 <li>
                                     <a className='flex gap-5' href='tel:+971556305217'>Call Us: <span>+971 556305217 </span></a>
