@@ -4,7 +4,19 @@ import ProductCard from "../../../components/ProductCard";
 import Layout from "../../../components/Layout";
 import Head from "next/head";
 
+
+const formatURL = (str) => {
+  return str
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "");
+};
+
 const Product = ({ data, product }) => {
+  const formattedTitle = formatURL(product.title);
+
   data = data["ae"];
   return (
     <>
@@ -14,7 +26,7 @@ const Product = ({ data, product }) => {
         </title>
         <link
           rel="canonical"
-          href={`https://safemedsupply.com/${country}/product/${product.title} `}
+          href={`https://safemedsupply.com/${country}/product/${formattedTitle} `}
         />
         <meta
           property="og:title"
