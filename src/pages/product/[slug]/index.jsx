@@ -4,12 +4,12 @@ import ProductCard from "../../../components/ProductCard";
 import Layout from "../../../components/Layout";
 import Head from "next/head";
 
-
 const formatURL = (str) => {
   return str
     .toLowerCase()
-    .replace(/[^\w\s-]/g, "")
+    .replace(/[^\w\s.-]/g, "")
     .replace(/\s+/g, "-")
+    .replace(/\./g, "-")
     .replace(/-+/g, "-")
     .replace(/^-+|-+$/g, "");
 };
