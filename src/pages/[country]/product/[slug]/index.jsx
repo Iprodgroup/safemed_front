@@ -13,7 +13,7 @@ const formatURL = (str) => {
     .replace(/^-+|-+$/g, "");
 };
 
-const Product = ({ data, country, product }) => {
+const Product = ({ data, country, product, main }) => {
   const formattedTitle = formatURL(product.title);
 
   return (
@@ -40,9 +40,9 @@ const Product = ({ data, country, product }) => {
           content={`Buy ${product.title} at best prices in ${data[country]?.citys} ${data[country]?.name} | ${product.brand.title} Reseller, Dealer & Distributor`}
         />
       </Head>
-      <Layout country={country}>
+      <Layout country={country} main={main}>
         <div className="container mt-10">
-          <ProductCard data={data[country]} country={country} product={product} />
+          <ProductCard data={data[country]} country={country} product={product} email={main.email}/>
         </div>
       </Layout>
     </>

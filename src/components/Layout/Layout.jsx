@@ -3,6 +3,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 
 function Layout({ children, country, main }) {
+  console.log(main.number)
   return (
     <div className="layout">
       <Header country={country} number={main.number} email={main.email}/>

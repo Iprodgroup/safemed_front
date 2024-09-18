@@ -6,11 +6,11 @@ import Link from 'next/link';
 import Layout from '../../../../components/Layout';
 import useGroupByLetter from '../../../../hooks/useGroupByLetter';
 
-const Product = ({ country, brands, slug }) => {
+const Product = ({ country, brands, slug, main }) => {
   const data = useGroupByLetter(brands);
 
   return (
-    <Layout country={country}>
+    <Layout country={country} main={main}>
       <link rel="canonical" href={`https://safemedsupply.com/${country}/brands/${slug}/`} />
       <div className='container my-10'>
         <ul className={styles.list}>

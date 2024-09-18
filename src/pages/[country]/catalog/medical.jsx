@@ -4,7 +4,7 @@ import MainCatalog from '../../../components/MainCatalog'
 import Layout from '@/components/Layout';
 import Head from 'next/head';
 
-const Catalog = ({brands, categories, country, data }) => {
+const Catalog = ({brands, categories, country, data, main }) => {
     return (
       <>
         <Head>
@@ -14,7 +14,7 @@ const Catalog = ({brands, categories, country, data }) => {
           <meta property="og:description" content={`Buy medical at the best price in ${data[country].name} ${data[country].citys} | medical Supplier & Reseller`}/>
           <link rel="canonical" href={`https://safemedsupply.com/${country}/catalog/medical/`}/>
         </Head>
-        <Layout country={country}>
+        <Layout country={country} main={main}>
         <div className='mt-10'>
           <MainCatalog type="medical" brands={brands} categories={categories} country={country} />
         </div>

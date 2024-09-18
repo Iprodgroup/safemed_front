@@ -20,10 +20,10 @@ class MyApp extends App {
     return {
       pageProps: {
         ...pageProps,
+        main,
         data,
         country,
         currentPath,
-        main
       },
     };
   }

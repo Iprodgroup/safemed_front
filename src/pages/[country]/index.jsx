@@ -4,7 +4,7 @@ import CategoryBlock from "../../components/CategoryBlock";
 import About from "../../components/About";
 import Head from "next/head";
 
-const Home = ({data, country}) => {
+const Home = ({data, country, main}) => {
   return (
     <>
       <Head>
@@ -13,7 +13,7 @@ const Home = ({data, country}) => {
         <meta name="description" content={`SafeMed offers best prices for Medical Equipment and Safety Supplies (PPE) with a wide range of over 200+ brands and fast delivery to ${data[country].citys} ${data[country].name}`} />
         <meta property="og:description" content={`SafeMed offers best prices for Medical Equipment and Safety Supplies (PPE) with a wide range of over 200+ brands and fast delivery to ${data[country].citys} ${data[country].name}`}/>
       </Head>
-      <Layout country={country}>
+      <Layout country={country} main={main}>
         <Banner data={data[country]}/>
         <CategoryBlock country={country}/>
         <About />

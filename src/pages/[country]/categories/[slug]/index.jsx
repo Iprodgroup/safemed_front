@@ -6,11 +6,11 @@ import Link from 'next/link';
 import Layout from '../../../../components/Layout';
 import useGroupByLetter from '../../../../hooks/useGroupByLetter';
 
-const CategoriesPage = ({ country, categories, slug }) => {
+const CategoriesPage = ({ country, categories, slug, main }) => {
   const data = useGroupByLetter(categories);
 
   return (
-    <Layout country={country}>
+    <Layout country={country} main={main}>
       <div className='container my-10'>
         <ul className={styles.list}>
           {data.map((group) => (
