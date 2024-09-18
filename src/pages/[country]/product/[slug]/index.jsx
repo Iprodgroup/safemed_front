@@ -42,7 +42,7 @@ const Product = ({ data, country, product, main }) => {
       </Head>
       <Layout country={country} main={main}>
         <div className="container mt-10">
-          <ProductCard data={data[country]} country={country} product={product} email={main.email}/>
+          <ProductCard data={data[country]} country={country} product={product} email={main.email} number={main.number}/>
         </div>
       </Layout>
     </>

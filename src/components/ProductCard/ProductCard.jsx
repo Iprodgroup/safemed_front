@@ -4,7 +4,7 @@ import Link from "next/link"
 import SimilarProducts from "../SimilarProducts";
 
 
-const ProductCard = ({data, country, product}) => {
+const ProductCard = ({data, country, product, main, email, number}) => {
     const [activeItem, setActiveItem] = useState('modal1');
 
     // if (!product) {
@@ -70,14 +70,14 @@ const ProductCard = ({data, country, product}) => {
                     </div>
                     <div className='flex gap-8'>
                         <a
-                            href='mailto:inquiry@gulfinstruments.com'
+                            href={`mailto:$email}`}
                             className='2xl:text-lg xl:text-lg lg:text-lg md:text-md sm:text-sm text-xs
                                 uppercase font-bold py-2 max-w-[220px] w-full text-center bg-primary rounded-md text-white'
                         >
                             Request a quote
                         </a>
                         <a
-                            href='https://wa.me/971 556305217'
+                            href={`https://wa.me/${number}`}
                             className='2xl:text-lg xl:text-lg lg:text-lg md:text-md sm:text-sm text-xs
                                 uppercase font-bold py-2 max-w-[220px] w-full text-center bg-primary rounded-md text-white'
                         >
@@ -148,7 +148,7 @@ const ProductCard = ({data, country, product}) => {
                                     Safemed also accepts Credit Card payments from United Arab Emirates (UAE),
                                     Saudi Arabia (KSA), Bahrain, Iraq, Kuwait, Oman & Qatar. Our International courier
                                     charges cover delivery up to door, including all local custom duties and taxes.
-                                    Please contact us at <a href='mailto: inquiry@gulfinstruments.com'> inquiry@gulfinstruments.com</a> for quotation, if your country is not
+                                    Please contact us at <a href={`mailto:${main.number}`}>{main.number}</a> for quotation, if your country is not
                                     listed above
                                 </p>
                             </div>

@@ -44,7 +44,7 @@ const Product = ({ data, product }) => {
       </Head>
       <Layout>
         <div className="container mt-10">
-          <ProductCard data={data} product={product} />
+          <ProductCard data={data} product={product} number={main.number} email={main.email}/>
         </div>
       </Layout>
     </>
