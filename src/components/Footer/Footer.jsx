@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Footer = ({country}) => {
+const Footer = ({country, address, number, email}) => {
     return (
         <>
             <div className='bg-primary font-body py-8 px-4'>
@@ -47,13 +47,13 @@ const Footer = ({country}) => {
 
                             <ul className='flex flex-col gap-2'>
                                 <li>
-                                    <p className='flex gap-5'>Address: <span>Shop # 85 Nakheel Center, Deira Dubai</span></p>
+                                    <p className='flex gap-5'>Address: <span>{address}</span></p>
                                 </li>
                                 <li>
-                                    <a className='flex gap-5' href='tel:+971556305217'>Call Us: <span>+971 556305217 </span></a>
+                                    <a className='flex gap-5' href={`tel:${number}`}>Call Us: <span>{number}</span></a>
                                 </li>
                                 <li>
-                                    <a className='flex gap-5' href='mailto: inquiry@gulfinstruments.com'>Mail Us: <span> inquiry@gulfinstruments.com</span></a>
+                                    <a className='flex gap-5' href={`mailto: ${email}`}>Mail Us: <span>{email}</span></a>
                                 </li>
                             </ul>
                         </div>

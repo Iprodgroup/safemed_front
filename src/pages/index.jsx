@@ -4,7 +4,7 @@ import CategoryBlock from "../components/CategoryBlock";
 import About from "../components/About";
 import Head from "next/head";
 
-export default function Home({ data }) {
+export default function Home({ data , main }) {
   return (
     <>
       <Head>
@@ -13,7 +13,7 @@ export default function Home({ data }) {
         <meta name="description" content={`In instruhub store you will find all the best in Medical Equipment and Safety Supplies (PPE). More than 200 brands of Medical Equipment and Safety Supplies (PPE) with fast delivery to ${data['ae'].citys}`} />
         <meta property="og:description" content={`In instruhub store you will find all the best in Medical Equipment and Safety Supplies (PPE). More than 200 brands of Medical Equipment and Safety Supplies (PPE) with fast delivery to ${data['ae'].citys}`}/>
       </Head>
-      <Layout>
+      <Layout main={main}>
         <Banner data={data['ae']}/>
         <CategoryBlock />
         <About />

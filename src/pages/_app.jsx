@@ -1,11 +1,13 @@
 import "@/styles/globals.css";
 import App from "next/app";
 import { fetchCountries } from "./api/countries";
+import { fetchMain } from "./api/mainData";
 import Head from "next/head";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     const data = await fetchCountries();
+    const main = await fetchMain();
     const { query, req, res } = ctx;
     const { country } = query;
     const currentPath = req ? req.url : window.location.pathname;
@@ -21,13 +23,14 @@ class MyApp extends App {
         data,
         country,
         currentPath,
+        main
       },
     };
   }
 
   render() {
     const { Component, pageProps } = this.props;
-    const { currentPath, data, country } = pageProps;
+    const { currentPath, data, country, main } = pageProps;
 
     const newPath = currentPath.replace("/" + country, "");
     return (
