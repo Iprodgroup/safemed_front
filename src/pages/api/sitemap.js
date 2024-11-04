@@ -2,10 +2,10 @@
 
 export default async function handler(req, res) {
   const sitemaps = [
-    'https://safemedsupply.com/ae/catalog/sitemap-medical.xml',
-    'https://safemedsupply.com/ae/catalog/sitemap-safety.xml',
-    'https://safemedsupply.com/sa/catalog/sitemap-medical.xml',
-    'https://safemedsupply.com/sa/catalog/sitemap-safety.xml',
+    'https://safemedsupply.com/api/ae/catalog/sitemap-medical.xml',
+    'https://safemedsupply.com/api/ae/catalog/sitemap-safety.xml',
+    'https://safemedsupply.com/api/sa/catalog/sitemap-medical.xml',
+    'https://safemedsupply.com/api/sa/catalog/sitemap-safety.xml',
   ];
 
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
