@@ -1,3 +1,5 @@
+// pages/api/sitemap/medical.js
+
 import axios from 'axios';
 
 const generateMedicalSitemap = async () => {
