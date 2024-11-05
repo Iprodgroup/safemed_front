@@ -2,8 +2,8 @@
 
 export default async function handler(req, res) {
   const sitemaps = [
-    'https://safemedsupply.com/api/sitemap/medical',
-    'https://safemedsupply.com/api/sitemap/safety',
+    'https://safemedsupply.com/api/sitemap-medical',
+    'https://safemedsupply.com/api/sitemap-safety',
   ];
 
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
