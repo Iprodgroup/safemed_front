@@ -38,7 +38,7 @@ const ProductCard = ({data, country, product, main, email, number}) => {
                 <div className='flex flex-col justify-between'>
                     <div>
                         <h1 className='font-bold 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-2xl sm:text-xl text-xl uppercase'>
-                            {product?.title} {product?.id}
+                            {product?.title}
                         </h1>
                     </div>
 
