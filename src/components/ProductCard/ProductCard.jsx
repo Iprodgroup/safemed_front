@@ -150,7 +150,7 @@ const ProductCard = ({data, country, product, main, email, number}) => {
                                     Safemed also accepts Credit Card payments from United Arab Emirates (UAE),
                                     Saudi Arabia (KSA), Bahrain, Iraq, Kuwait, Oman & Qatar. Our International courier
                                     charges cover delivery up to door, including all local custom duties and taxes.
-                                    Please contact us at <a href={`mailto:${email}`}>{phone}</a> for quotation, if your country is not
+                                    Please contact us at <a href={`mailto:${email}`}>{email}</a> for quotation, if your country is not
                                     listed above
                                 </p>
                             </div>
