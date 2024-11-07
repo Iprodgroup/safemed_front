@@ -24,6 +24,8 @@ const ProductCard = ({data, country, product, main, email, number}) => {
         setActiveItem(modalType);
     };
 
+    const phone = number.replace(/\s/g, '');
+
     return (
         <>    
             {/* <div className='my-6'>
@@ -70,14 +72,14 @@ const ProductCard = ({data, country, product, main, email, number}) => {
                     </div>
                     <div className='flex gap-8'>
                         <a
-                            href={`mailto:$email}`}
+                            href={`mailto:${email}`}
                             className='2xl:text-lg xl:text-lg lg:text-lg md:text-md sm:text-sm text-xs
                                 uppercase font-bold py-2 max-w-[220px] w-full text-center bg-primary rounded-md text-white'
                         >
                             Request a quote
                         </a>
                         <a
-                            href={`https://wa.me/${number}`}
+                            href={`https://wa.me/${phone}`}
                             className='2xl:text-lg xl:text-lg lg:text-lg md:text-md sm:text-sm text-xs
                                 uppercase font-bold py-2 max-w-[220px] w-full text-center bg-primary rounded-md text-white'
                         >
@@ -148,7 +150,7 @@ const ProductCard = ({data, country, product, main, email, number}) => {
                                     Safemed also accepts Credit Card payments from United Arab Emirates (UAE),
                                     Saudi Arabia (KSA), Bahrain, Iraq, Kuwait, Oman & Qatar. Our International courier
                                     charges cover delivery up to door, including all local custom duties and taxes.
-                                    Please contact us at <a href={`mailto:${main.number}`}>{main.number}</a> for quotation, if your country is not
+                                    Please contact us at <a href={`mailto:${email}`}>{phone}</a> for quotation, if your country is not
                                     listed above
                                 </p>
                             </div>
