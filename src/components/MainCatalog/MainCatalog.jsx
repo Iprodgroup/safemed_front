@@ -127,12 +127,13 @@ const MainCatalog = ({ type, brands, categories, country }) => {
                     <p className="overflow-hidden line-clamp-3 text-md">
                       {el.description}
                     </p>
-                    <button
+                    <a
                       className="py-1 px-8 text-white font-semibold bg-primary rounded-lg active:bg-blue-700"
-                      onClick={() => handleProductClick(el.slug)}
+                      // onClick={() => handleProductClick(el.slug)}
+                      href={`/${country}/product/${el.slug}`}
                     >
                       More
-                    </button>
+                    </a>
                   </div>
                 ))}
                 <div className="flex w-full justify-center my-4">
