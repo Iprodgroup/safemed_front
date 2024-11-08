@@ -123,7 +123,9 @@ const MainCatalog = ({ type, brands, categories, country }) => {
                         className="w-[100px] h-[150px]"
                       />
                     </button>
-                    <h2 className="font-bold text-xl">{el.title}</h2>
+                    <a href={`/${country}/product/${el.slug}`}>
+                      <h2 className="font-bold text-xl">{el.title}</h2>
+                    </a>
                     <p className="overflow-hidden line-clamp-3 text-md">
                       {el.description}
                     </p>
