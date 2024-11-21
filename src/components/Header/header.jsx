@@ -193,7 +193,7 @@ const Header = ({ country, number, email }) => {
                   >
                     <a
                       className="flex flex-col items-center gap-2 callCenter"
-                      href={`https://wa.me:${number}`}
+                      href={`https://wa.me/${number}`}
                     >
                       <FaWhatsapp className="text-2xl" />
                       {number}
