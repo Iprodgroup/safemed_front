@@ -205,7 +205,7 @@ const Header = ({ country, number, email }) => {
                   >
                     <a
                       className="flex flex-col items-center gap-2 callCenter"
-                      href={`mailto: ${email}`}
+                      href={`mailto:${email}`}
                     >
                       <MdOutlineEmail className="text-2xl" />
                       {email}
