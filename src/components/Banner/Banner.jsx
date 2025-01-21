@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const Banner = ({ data }) => {
   const [name, setName] = useState("");
@@ -6,8 +8,7 @@ const Banner = ({ data }) => {
   const [message, setMessage] = useState("");
 
   const handleNameChange = (e) => {
-    const only = e.target.value.replace(/[^a-zA-Z]/g, "");
-    setName(only);
+    setName(e.target.value);
   };
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -16,15 +17,41 @@ const Banner = ({ data }) => {
     setMessage(e.target.value);
   };
 
-  const handleFormChange = (e) => {
+  const handleFormChange = async (e) => {
     e.preventDefault();
+  };
+
+  const sendForm = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "https://api.toolsandtrade.com/api/contact",
+        {
+          name,
+          email,
+          message,
+        }
+      );
+      if (response.status === 200) {
+        toast.success("Form submitted successfully!");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        toast.error("Failed to submit the form. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Failed to submit the form. Please try again.");
+    }
   };
 
   return (
     <div className="container mt-10 flex items-center justify-between w-full gap-10 font-body hero mb-12">
+      <Toaster />
       <form
         action=""
         method=""
+        onSubmit={sendForm}
         onChange={handleFormChange}
         className=" flex flex-col justify-evenly items-center font-body w-[350px] 
                 2xl:h-[450px] xl:h-[450px] lg:h-[400px] md:h-[370px] sm:h-[370px] h-[370px] px-4 py-6 border"
