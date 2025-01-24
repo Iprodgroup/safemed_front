@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+// import toast, { Toaster } from "react-hot-toast";
 
 const Banner = ({ data }) => {
   const [name, setName] = useState("");
@@ -44,11 +44,11 @@ const Banner = ({ data }) => {
       toast.error("Failed to submit the form. Please try again.");
     }
   };
+  // <Toaster />
 
   return (
     <div className="container mt-10 flex items-center justify-between w-full gap-10 font-body hero mb-12">
-      <Toaster />
-      <form
+      {/* <form
         action=""
         method=""
         onSubmit={sendForm}
@@ -94,7 +94,7 @@ const Banner = ({ data }) => {
         >
           SEND INQUIRY
         </button>
-      </form>
+      </form> */}
       <div
         className=" static -z-10 heroRight
             2xl:h-[500px] xl:h-[500px] lg:h-[450px] md:h-[420px] sm:h-[400px] h-[380px] w-full 
